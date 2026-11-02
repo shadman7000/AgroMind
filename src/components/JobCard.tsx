@@ -18,7 +18,7 @@ export function JobCard({ job }: { job: TodayJob }) {
   return (
     <motion.article
       variants={staggerItem}
-      className="panel flex items-start gap-4 p-5"
+      className="panel flex items-start gap-3 p-3.5 sm:gap-4 sm:p-5"
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
     >

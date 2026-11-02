@@ -25,7 +25,7 @@ export function PlanActionCard({
   return (
     <motion.article
       layout
-      className={`panel space-y-4 p-5 ${statusStyles[action.status]}`}
+      className={`panel space-y-3 p-3.5 sm:space-y-4 sm:p-5 ${statusStyles[action.status]}`}
       transition={softSpring}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">

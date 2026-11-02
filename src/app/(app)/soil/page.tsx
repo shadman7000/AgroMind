@@ -37,13 +37,13 @@ export default function SoilPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
             {t("soil.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("soil.title")}</h1>
+          <h1 className="display text-3xl text-[var(--leaf-deep)] sm:text-4xl">{t("soil.title")}</h1>
           <p className="max-w-2xl text-[var(--muted)]">{t("soil.blurb")}</p>
         </div>
 
-        <div className="grid gap-4">
+        <div className="grid gap-3 sm:gap-4">
           {soilHistory.map((row) => (
-            <article key={row.id} className="panel space-y-4 p-5 sm:p-6">
+            <article key={row.id} className="panel space-y-3 p-3.5 sm:space-y-4 sm:p-6">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h2 className="display text-2xl text-[var(--ink)]">

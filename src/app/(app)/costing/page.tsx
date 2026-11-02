@@ -50,13 +50,13 @@ export default function CostingPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
             {t("costing.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("costing.title")}</h1>
+          <h1 className="display text-3xl text-[var(--leaf-deep)] sm:text-4xl">{t("costing.title")}</h1>
           <p className="max-w-2xl text-[var(--muted)]">{t("costing.blurb")}</p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-3">
           {marketPrices.map((item) => (
-            <article key={item.crop} className="panel space-y-2 p-5">
+            <article key={item.crop} className="panel space-y-2 p-3.5 sm:p-5">
               <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">
                 {t(marketKey[item.market] ?? "market.savar")}
               </p>
@@ -86,7 +86,7 @@ export default function CostingPage() {
           ))}
         </div>
 
-        <div className="panel space-y-6 p-6">
+        <div className="panel space-y-4 p-3.5 sm:space-y-6 sm:p-6">
           <h2 className="display text-2xl text-[var(--ink)]">{t("costing.calculator")}</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {fields.map((field) => (

@@ -79,7 +79,7 @@ function GlanceCard({
     <motion.div variants={staggerItem}>
       <Link
         href={href}
-        className="panel block h-full p-5 transition hover:-translate-y-0.5 hover:border-[rgba(35,79,50,0.28)]"
+        className="panel block h-full p-3.5 transition hover:-translate-y-0.5 hover:border-[rgba(35,79,50,0.28)] sm:p-5"
       >
         <div className="flex items-start justify-between gap-3">
           <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">{eyebrow}</p>
@@ -117,13 +117,13 @@ export default function TodayPage() {
       <section className="space-y-8">
         <div className="panel overflow-hidden">
           <div className="field-plot h-24 w-full sm:h-28" aria-hidden />
-          <div className="space-y-5 p-6 sm:p-8">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl space-y-3">
+          <div className="space-y-4 p-4 sm:space-y-5 sm:p-8">
+            <div className="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl space-y-2 sm:space-y-3">
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
                   {t("today.briefing", { farm: farm.name })}
                 </p>
-                <h1 className="display text-3xl text-[var(--ink)] sm:text-5xl">
+                <h1 className="display text-2xl text-[var(--ink)] sm:text-5xl">
                   {t("today.jobsHeadline", { count: todayJobs.length })}
                   <span className="text-[var(--muted)]">
                     {" "}
@@ -174,7 +174,7 @@ export default function TodayPage() {
             <p className="text-sm text-[var(--muted)]">{t("today.tapCards")}</p>
           </div>
           <motion.div
-            className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
+            className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4"
             variants={staggerContainer}
             initial={reduce ? false : "initial"}
             animate="animate"
@@ -239,9 +239,9 @@ export default function TodayPage() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="panel space-y-4 p-5 sm:p-6">
+          <div className="panel space-y-3 p-3.5 sm:space-y-4 sm:p-6">
             <div className="flex items-center justify-between gap-3">
-              <h2 className="display text-2xl text-[var(--ink)]">{t("today.plotsNow")}</h2>
+              <h2 className="display text-xl text-[var(--ink)] sm:text-2xl">{t("today.plotsNow")}</h2>
               <Link href="/field" className="text-sm font-semibold text-[var(--ink)]">
                 {t("today.openField")}
               </Link>
@@ -278,9 +278,9 @@ export default function TodayPage() {
             </div>
           </div>
 
-          <div className="panel space-y-4 p-5 sm:p-6">
+          <div className="panel space-y-3 p-3.5 sm:space-y-4 sm:p-6">
             <div className="flex items-center justify-between gap-3">
-              <h2 className="display text-2xl text-[var(--ink)]">{t("today.planPeek")}</h2>
+              <h2 className="display text-xl text-[var(--ink)] sm:text-2xl">{t("today.planPeek")}</h2>
               <Link href="/plan" className="text-sm font-semibold text-[var(--ink)]">
                 {t("today.fullPlan")}
               </Link>
@@ -315,7 +315,7 @@ export default function TodayPage() {
             </p>
           </div>
           <motion.div
-            className="grid gap-4"
+            className="grid gap-3 sm:gap-4"
             variants={staggerContainer}
             initial={reduce ? false : "initial"}
             animate="animate"

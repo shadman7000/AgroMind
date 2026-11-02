@@ -79,12 +79,12 @@ export default function WhatIfPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
             {t("whatif.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("whatif.title")}</h1>
+          <h1 className="display text-3xl text-[var(--leaf-deep)] sm:text-4xl">{t("whatif.title")}</h1>
           <p className="max-w-2xl text-[var(--muted)]">{t("whatif.blurb")}</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="panel space-y-5 p-5 sm:p-6">
+          <div className="panel space-y-4 p-3.5 sm:space-y-5 sm:p-6">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <h2 className="display text-xl text-[var(--ink)]">{t("whatif.try")}</h2>
@@ -149,7 +149,7 @@ export default function WhatIfPage() {
               transition={softSpring}
               className="space-y-4"
             >
-              <div className="panel space-y-3 p-5 sm:p-6">
+              <div className="panel space-y-3 p-3.5 sm:p-6">
                 <h2 className="display text-2xl text-[var(--ink)]">
                   {result.rainy ? t("whatif.rainyPath") : t("whatif.dryPath")}
                 </h2>
@@ -169,7 +169,7 @@ export default function WhatIfPage() {
 
               <div className="grid gap-3 sm:grid-cols-2">
                 {metrics.map((metric) => (
-                  <div key={metric.label} className="panel p-4">
+                  <div key={metric.label} className="panel p-3 sm:p-4">
                     <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">
                       {metric.label}
                     </p>
@@ -181,7 +181,7 @@ export default function WhatIfPage() {
               <div className="space-y-3">
                 <h3 className="display text-xl text-[var(--ink)]">{t("whatif.actions")}</h3>
                 {result.actions.map((action) => (
-                  <article key={action.id} className="panel p-4">
+                  <article key={action.id} className="panel p-3 sm:p-4">
                     <p className="font-bold text-[var(--ink)]">{t(`plan.${action.id}.title`)}</p>
                     <p className="mt-1 text-sm text-[var(--muted)]">
                       {t(`plan.${action.id}.why`)}

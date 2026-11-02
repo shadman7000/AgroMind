@@ -19,7 +19,7 @@ export default function LoginPage() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="field-plot h-36 w-full" aria-hidden />
-        <div className="space-y-6 p-8 sm:p-10">
+        <div className="space-y-5 p-5 sm:space-y-6 sm:p-10">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <DemoBadge />
             <LanguageToggle tone="light" />

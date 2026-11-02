@@ -18,12 +18,12 @@ export default function FieldPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
             {t("field.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("field.title")}</h1>
+          <h1 className="display text-3xl text-[var(--leaf-deep)] sm:text-4xl">{t("field.title")}</h1>
           <p className="max-w-2xl text-[var(--muted)]">{t("field.blurb")}</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="panel p-5 sm:p-6">
+          <div className="panel p-3.5 sm:p-6">
             <div className="mb-4 flex items-center justify-between gap-3">
               <h2 className="display text-2xl text-[var(--ink)]">{farm.name}</h2>
               <Link href="/soil" className="text-sm font-semibold text-[var(--leaf-deep)]">
@@ -58,7 +58,7 @@ export default function FieldPage() {
             </div>
           </div>
 
-          <div className="panel space-y-5 p-5 sm:p-6">
+          <div className="panel space-y-4 p-3.5 sm:space-y-5 sm:p-6">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">

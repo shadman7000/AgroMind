@@ -25,15 +25,15 @@ export default function WeatherPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
             {t("weather.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("weather.title")}</h1>
+          <h1 className="display text-3xl text-[var(--leaf-deep)] sm:text-4xl">{t("weather.title")}</h1>
           <p className="max-w-2xl text-[var(--muted)]">{t("weather.blurb")}</p>
         </div>
 
         <div className="space-y-4">
           <h2 className="display text-2xl text-[var(--ink)]">{t("weather.nextDays")}</h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
             {weatherForecast.map((day, index) => (
-              <article key={day.day} className="panel space-y-3 p-5">
+              <article key={day.day} className="panel space-y-2.5 p-3.5 sm:space-y-3 sm:p-5">
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">
                     {t(weatherDayKey[index])}
@@ -67,9 +67,9 @@ export default function WeatherPage() {
             <h2 className="display text-2xl text-[var(--ink)]">{t("weather.stations")}</h2>
             <p className="text-xs font-semibold text-[var(--soil)]">{t("weather.stationsNote")}</p>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 lg:grid-cols-3">
             {weatherStations.map((station) => (
-              <article key={station.id} className="panel space-y-3 p-5">
+              <article key={station.id} className="panel space-y-2.5 p-3.5 sm:space-y-3 sm:p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h3 className="font-bold text-[var(--ink)]">
@@ -108,9 +108,9 @@ export default function WeatherPage() {
         <div className="space-y-4">
           <h2 className="display text-2xl text-[var(--ink)]">{t("weather.monthly")}</h2>
           <p className="max-w-2xl text-sm text-[var(--muted)]">{t("weather.monthlyBlurb")}</p>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
             {monthlyOutlook.map((month, index) => (
-              <article key={month.month} className="panel space-y-3 p-5">
+              <article key={month.month} className="panel space-y-2.5 p-3.5 sm:space-y-3 sm:p-5">
                 <h3 className="display text-xl text-[var(--leaf-deep)]">
                   {t(`month.${monthKeys[index]}`)}
                 </h3>
@@ -130,9 +130,9 @@ export default function WeatherPage() {
 
         <div className="space-y-4">
           <h2 className="display text-2xl text-[var(--ink)]">{t("weather.disease")}</h2>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 lg:grid-cols-3">
             {diseaseRisks.map((risk, index) => (
-              <article key={risk.name} className="panel space-y-3 p-5">
+              <article key={risk.name} className="panel space-y-2.5 p-3.5 sm:space-y-3 sm:p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-start gap-2">
                     <LeafMark />

@@ -34,7 +34,7 @@ export default function PlanPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
             {t("plan.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("plan.title")}</h1>
+          <h1 className="display text-3xl text-[var(--leaf-deep)] sm:text-4xl">{t("plan.title")}</h1>
           <p className="max-w-2xl text-[var(--muted)]">{t("plan.blurb")}</p>
         </div>
 
@@ -52,7 +52,7 @@ export default function PlanPage() {
           </Link>
         </div>
 
-        <motion.div layout className="panel space-y-3 p-5 sm:p-6" transition={softSpring}>
+        <motion.div layout className="panel space-y-3 p-3.5 sm:p-6" transition={softSpring}>
           <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">
             {t("plan.summary")}
           </p>
@@ -70,7 +70,7 @@ export default function PlanPage() {
 
         <AnimatePresence mode="popLayout">
           {generated ? (
-            <motion.div layout className="grid gap-4" transition={softSpring}>
+            <motion.div layout className="grid gap-3 sm:gap-4" transition={softSpring}>
               {actions.map((action) => (
                 <PlanActionCard
                   key={action.id}
