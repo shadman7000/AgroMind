@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+:root {
+  /* Cotton Newsprint / Sumi Ink / Vermilion / Chlorophyll */
+  --newsprint: #f3efe6;
+  --parchment: #efead8;
+  --parchment-deep: #e8e2d5;
+  --ink: #161514;
+  --ink-soft: #111211;
+  --vermilion: #c83e2b;
+  --chlorophyll: #234f32;
+
+  /* Keep existing token names so screens keep working */
+  --sky-top: #f3efe6;
+  --sky-mid: #f3efe6;
+  --sky-bottom: #efead8;
+  --leaf: #234f32;
+  --leaf-deep: #1a3a25;
+  --leaf-soft: #3d6b4a;
+  --soil: #5c574e;
+  --soil-deep: #161514;
+  --clay: #e5e2d9;
+  --straw: #b8892e;
+  --straw-soft: #e8d4a8;
+  --cream: #f3efe6;
+  --muted: #6b665e;
+  --line: #161514;
+  --ok: #234f32;
+  --warn: #c83e2b;
+  --danger: #c83e2b;
+  --surface: #f3efe6;
+  --shadow: 0 0 0 transparent;
+
+  --background: var(--newsprint);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-leaf: var(--leaf);
+  --color-leaf-deep: var(--leaf-deep);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-soil: var(--soil);
+  --color-soil-deep: var(--soil-deep);
+  --color-clay: var(--clay);
+  --color-straw: var(--straw);
+  --color-straw-soft: var(--straw-soft);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-vermilion: var(--vermilion);
+  --color-parchment: var(--parchment);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-color: var(--newsprint);
+  background-image: radial-gradient(rgba(22, 21, 20, 0.045) 1px, transparent 0);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.farm-shell,
+.login-screen {
+  position: relative;
+  z-index: 1;
+}
+
+.display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+
+html[data-locale="bn"] body {
+  font-family: var(--font-bengali), var(--font-body), system-ui, sans-serif;
+}
+
+html[data-locale="bn"] .display {
+  font-family: var(--font-bengali), var(--font-display), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+html[data-locale="bn"] .mono-label,
+html[data-locale="bn"] .btn,
+html[data-locale="bn"] .nav-link,
+html[data-locale="bn"] .demo-badge {
+  font-family: var(--font-bengali), var(--font-mono), sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.mono-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--ink);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 0;
+  border: 1.5px solid var(--ink);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--newsprint);
+}
+
+.btn-primary:hover {
+  background: var(--chlorophyll);
+  border-color: var(--chlorophyll);
+  color: var(--newsprint);
+}
+
+.btn-secondary {
+  background: var(--newsprint);
+  color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--newsprint);
+}
+
+.btn-accept {
+  background: var(--chlorophyll);
+  border-color: var(--ink);
+  color: var(--newsprint);
+}
+
+.btn-accept:hover {
+  background: var(--leaf-deep);
+}
+
+.btn-reject {
+  background: transparent;
+  border-color: var(--vermilion);
+  color: var(--vermilion);
+}
+
+.btn-reject:hover {
+  background: var(--vermilion);
+  color: var(--newsprint);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0;
+  border: 1.5px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.nav-link:hover {
+  background: rgba(22, 21, 20, 0.06);
+  color: var(--ink);
+}
+
+.nav-link[data-active="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--newsprint);
+}
+
+.gauge-track {
+  height: 0.7rem;
+  border-radius: 0;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.gauge-fill {
+  height: 100%;
+  border-radius: 0;
+  background: var(--chlorophyll);
+  transform-origin: left center;
+}
+
+.field-plot {
+  background:
+    linear-gradient(135deg, rgba(35, 79, 50, 0.16), rgba(22, 21, 20, 0.08)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(35, 79, 50, 0.14) 0 14px,
+      rgba(22, 21, 20, 0.06) 14px 28px
+    );
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+}
+
+.tint-leaf {
+  background: rgba(35, 79, 50, 0.08);
+}
+
+.tint-warn {
+  background: rgba(200, 62, 43, 0.1);
+}
+
+.tint-ink {
+  background: rgba(22, 21, 20, 0.05);
+}
+
+.border-ink {
+  border-color: rgba(22, 21, 20, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
