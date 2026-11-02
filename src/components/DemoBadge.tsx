@@ -1,8 +1,13 @@
+"use client";
+
+import { useLocale } from "@/i18n/LocaleProvider";
+
 export function DemoBadge() {
+  const { t } = useLocale();
   return (
-    <span className="demo-badge" title="Sensor readings are simulated until live telemetry is connected">
+    <span className="demo-badge" title={t("common.demoBadgeTitle")}>
       <span aria-hidden>◎</span>
-      Demo data · simulated sensors
+      {t("common.demoBadge")}
     </span>
   );
 }

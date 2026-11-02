@@ -5,11 +5,13 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { PageEnter } from "@/components/PageEnter";
 import { PlanActionCard } from "@/components/PlanActionCard";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { softSpring } from "@/lib/motion";
 import { cloneActions, todayPlan } from "@/mocks";
 import type { PlanAction } from "@/mocks/types";
 
 export default function PlanPage() {
+  const { t } = useLocale();
   const [actions, setActions] = useState<PlanAction[]>(() => cloneActions(todayPlan.actions));
   const [generated, setGenerated] = useState(true);
 
@@ -30,13 +32,10 @@ export default function PlanPage() {
       <section className="space-y-8">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
-            Today’s plan
+            {t("plan.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">Suggested work for the farm</h1>
-          <p className="max-w-2xl text-[var(--muted)]">
-            Built from soil, weather, and market signals. Read why each step is suggested, then
-            accept or reject.
-          </p>
+          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("plan.title")}</h1>
+          <p className="max-w-2xl text-[var(--muted)]">{t("plan.blurb")}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -46,23 +45,25 @@ export default function PlanPage() {
             whileTap={{ scale: 0.98 }}
             onClick={regenerate}
           >
-            Refresh today’s plan
+            {t("plan.refresh")}
           </motion.button>
           <Link href="/what-if" className="btn btn-secondary">
-            Try a what-if
+            {t("plan.tryWhatIf")}
           </Link>
         </div>
 
-        <motion.div layout className="panel p-5 sm:p-6 space-y-3" transition={softSpring}>
+        <motion.div layout className="panel space-y-3 p-5 sm:p-6" transition={softSpring}>
           <p className="text-xs font-bold uppercase tracking-wide text-[var(--soil)]">
-            Plan summary
+            {t("plan.summary")}
           </p>
-          <p className="text-base leading-relaxed text-[var(--ink)]">{todayPlan.planSummary}</p>
+          <p className="text-base leading-relaxed text-[var(--ink)]">{t("plan.summary.base")}</p>
           <div className="flex flex-wrap gap-4 text-sm font-semibold">
-            <span className="text-[var(--ok)]">Accepted {accepted}</span>
-            <span className="text-[var(--danger)]">Rejected {rejected}</span>
+            <span className="text-[var(--ok)]">{t("plan.accepted", { n: accepted })}</span>
+            <span className="text-[var(--danger)]">{t("plan.rejected", { n: rejected })}</span>
             <span className="text-[var(--muted)]">
-              Pending {actions.filter((a) => a.status === "pending").length}
+              {t("plan.pending", {
+                n: actions.filter((a) => a.status === "pending").length,
+              })}
             </span>
           </div>
         </motion.div>

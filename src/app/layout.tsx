@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, JetBrains_Mono, Syne } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono, Noto_Sans_Bengali, Syne } from "next/font/google";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const display = Instrument_Serif({
@@ -20,6 +21,12 @@ const mono = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
 });
 
+const bengali = Noto_Sans_Bengali({
+  variable: "--font-bengali",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "AgroMind — Field Decision Helper",
   description:
@@ -34,9 +41,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} h-full`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${bengali.variable} h-full`}
     >
-      <body className="min-h-full antialiased">{children}</body>
+      <body className="min-h-full antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

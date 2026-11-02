@@ -4,20 +4,23 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { DemoBadge } from "@/components/DemoBadge";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { farm } from "@/mocks";
 
 const links = [
-  { href: "/today", label: "Today" },
-  { href: "/field", label: "Field" },
-  { href: "/soil", label: "Soil" },
-  { href: "/weather", label: "Weather" },
-  { href: "/costing", label: "Costing" },
-  { href: "/plan", label: "Plan" },
-  { href: "/what-if", label: "What-if" },
-];
+  { href: "/today", labelKey: "nav.today" },
+  { href: "/field", labelKey: "nav.field" },
+  { href: "/soil", labelKey: "nav.soil" },
+  { href: "/weather", labelKey: "nav.weather" },
+  { href: "/costing", labelKey: "nav.costing" },
+  { href: "/plan", labelKey: "nav.plan" },
+  { href: "/what-if", labelKey: "nav.whatIf" },
+] as const;
 
 export function FarmShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const { t } = useLocale();
 
   return (
     <div className="farm-shell min-h-screen">
@@ -31,19 +34,20 @@ export function FarmShell({ children }: { children: ReactNode }) {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
+              <LanguageToggle tone="dark" />
               <span className="border border-[var(--vermilion)] bg-[var(--vermilion)] px-2 py-0.5 font-[family-name:var(--font-mono)] text-[10px] font-semibold uppercase tracking-widest text-white">
-                Demo
+                {t("common.demo")}
               </span>
               <DemoBadge />
               <Link
                 href="/"
                 className="border border-[var(--newsprint)] px-3 py-2 font-[family-name:var(--font-mono)] text-[10px] font-semibold uppercase tracking-widest text-[var(--newsprint)] hover:bg-[var(--newsprint)] hover:text-[var(--ink)]"
               >
-                Sign out
+                {t("common.signOut")}
               </Link>
             </div>
           </div>
-          <nav className="flex gap-1 overflow-x-auto pb-1" aria-label="Main">
+          <nav className="flex gap-1 overflow-x-auto pb-1" aria-label={t("nav.main")}>
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -51,7 +55,7 @@ export function FarmShell({ children }: { children: ReactNode }) {
                 className="nav-link whitespace-nowrap !border-[rgba(243,239,230,0.25)] !text-[rgba(243,239,230,0.75)] hover:!bg-[rgba(243,239,230,0.12)] hover:!text-[var(--newsprint)] data-[active=true]:!bg-[var(--newsprint)] data-[active=true]:!text-[var(--ink)]"
                 data-active={pathname === link.href}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
           </nav>

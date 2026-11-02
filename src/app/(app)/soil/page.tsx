@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { PageEnter } from "@/components/PageEnter";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { soilHistory } from "@/mocks";
 
 function Nutrient({
@@ -27,62 +28,64 @@ function Nutrient({
 }
 
 export default function SoilPage() {
+  const { t } = useLocale();
+
   return (
     <PageEnter>
       <section className="space-y-8">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--soil)]">
-            Soil nutrition
+            {t("soil.eyebrow")}
           </p>
-          <h1 className="display text-4xl text-[var(--leaf-deep)]">What’s in the ground</h1>
-          <p className="max-w-2xl text-[var(--muted)]">
-            Full nutrient names — not lab shorthand — so anyone on the farm can read the list.
-          </p>
+          <h1 className="display text-4xl text-[var(--leaf-deep)]">{t("soil.title")}</h1>
+          <p className="max-w-2xl text-[var(--muted)]">{t("soil.blurb")}</p>
         </div>
 
         <div className="grid gap-4">
           {soilHistory.map((row) => (
-            <article key={row.id} className="panel p-5 sm:p-6 space-y-4">
+            <article key={row.id} className="panel space-y-4 p-5 sm:p-6">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <h2 className="display text-2xl text-[var(--ink)]">{row.fieldName}</h2>
-                  <p className="mt-1 text-sm text-[var(--muted)]">Reading from {row.date}</p>
+                  <h2 className="display text-2xl text-[var(--ink)]">
+                    {t(`field.${row.fieldId}.name`)}
+                  </h2>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    {t("soil.readingFrom", { date: row.date })}
+                  </p>
                 </div>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 <Nutrient
-                  name="Nitrogen"
+                  name={t("common.nitrogen")}
                   value={row.nitrogen}
                   unit="ppm"
-                  hint="Helps leafy growth (often shortened to N)"
+                  hint={t("soil.hintN")}
                 />
                 <Nutrient
-                  name="Phosphorus"
+                  name={t("common.phosphorus")}
                   value={row.phosphorus}
                   unit="ppm"
-                  hint="Helps roots and flowering (often shortened to P)"
+                  hint={t("soil.hintP")}
                 />
                 <Nutrient
-                  name="Potassium"
+                  name={t("common.potassium")}
                   value={row.potassium}
                   unit="ppm"
-                  hint="Helps strength and stress tolerance (often shortened to K)"
+                  hint={t("soil.hintK")}
                 />
                 <Nutrient
-                  name="Soil moisture"
+                  name={t("soil.moisture")}
                   value={row.moisturePct}
                   unit="%"
-                  hint="How wet the soil feels right now"
+                  hint={t("soil.hintMoisture")}
                 />
-                <Nutrient
-                  name="Soil pH (acidity)"
-                  value={row.ph}
-                  hint="Around 6.0–6.8 is usually comfortable for these crops"
-                />
+                <Nutrient name={t("common.ph")} value={row.ph} hint={t("soil.hintPh")} />
               </div>
 
-              <p className="text-sm leading-relaxed text-[var(--muted)]">{row.note}</p>
+              <p className="text-sm leading-relaxed text-[var(--muted)]">
+                {t(`soil.${row.id}.note`)}
+              </p>
             </article>
           ))}
         </div>

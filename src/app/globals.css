@@ -105,6 +105,25 @@ input {
   font-style: italic;
 }
 
+html[data-locale="bn"] body {
+  font-family: var(--font-bengali), var(--font-body), system-ui, sans-serif;
+}
+
+html[data-locale="bn"] .display {
+  font-family: var(--font-bengali), var(--font-display), sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+html[data-locale="bn"] .mono-label,
+html[data-locale="bn"] .btn,
+html[data-locale="bn"] .nav-link,
+html[data-locale="bn"] .demo-badge {
+  font-family: var(--font-bengali), var(--font-mono), sans-serif;
+  letter-spacing: 0.04em;
+}
+
 .mono-label {
   font-family: var(--font-mono), ui-monospace, monospace;
   letter-spacing: 0.14em;
