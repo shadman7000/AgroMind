@@ -55,8 +55,8 @@
   --color-vermilion: var(--vermilion);
   --color-parchment: var(--parchment);
   --font-sans: var(--font-body);
-  --font-display: var(--font-display);
-  --font-mono: var(--font-mono);
+  --font-display: var(--font-body);
+  --font-mono: var(--font-body);
 }
 
 * {
@@ -66,6 +66,12 @@
 html,
 body {
   min-height: 100%;
+}
+
+/* English UI uses one face everywhere (set by next/font as --font-body) */
+html {
+  --font-display: var(--font-body);
+  --font-mono: var(--font-body);
 }
 
 body {
@@ -99,10 +105,10 @@ input {
 }
 
 .display {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  font-style: italic;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-style: normal;
 }
 
 html[data-locale="bn"] body {
@@ -110,7 +116,7 @@ html[data-locale="bn"] body {
 }
 
 html[data-locale="bn"] .display {
-  font-family: var(--font-bengali), var(--font-display), sans-serif;
+  font-family: var(--font-bengali), var(--font-body), system-ui, sans-serif;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0;
