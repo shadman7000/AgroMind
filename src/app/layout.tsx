@@ -1,22 +1,10 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, JetBrains_Mono, Noto_Sans_Bengali, Syne } from "next/font/google";
+import { Noto_Sans_Bengali, Plus_Jakarta_Sans } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
 
-const display = Instrument_Serif({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const body = Syne({
+const jakarta = Plus_Jakarta_Sans({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const mono = JetBrains_Mono({
-  variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -39,10 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} ${bengali.variable} h-full`}
-    >
+    <html lang="en" className={`${jakarta.variable} ${bengali.variable} h-full`}>
       <body className="min-h-full antialiased">
         <Providers>{children}</Providers>
       </body>
